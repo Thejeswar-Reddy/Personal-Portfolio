@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary: #157DEC;
+    --primary-light: rgba(21, 125, 236, 0.1);
+    --dark: #1a1c2e;
+    --darker: #0f101a;
+    --light: #F0F0F0;
+    --gray: #91A3B0;
+    --neon: #00f2ff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, var(--darker), var(--dark));
+    color: var(--light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.bg-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+.bg-element {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--primary-light), transparent 70%);
+    filter: blur(40px);
+    opacity: 0.3;
+    animation: float 6s ease-in-out infinite;
+}
+
+header {
+    background: rgba(26, 28, 46, 0.8);
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+header.scrolled {
+    padding: 0.5rem 2rem;
+    background: rgba(15, 16, 26, 0.95);
+}
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--primary), var(--neon));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+nav a {
+    text-decoration: none;
+    color: var(--gray);
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+nav a:hover {
+    color: white;
+}
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--neon));
+    transition: width 0.3s ease;
+}
+nav a:hover::after {
+    width: 100%;
+}
+
+section {
+    padding: 6rem 2rem;
+    min-height: 100vh;
+    position: relative;
+}
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 30%, rgba(21, 125, 236, 0.05), transparent 70%);
+    z-index: -1;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, white, var(--neon));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1.2;
+}
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--neon));
+    border-radius: 2px;
+}
+p {
+    color: var(--gray);
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: linear-gradient(90deg, var(--primary), var(--neon));
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    margin-top: 2rem;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    box-shadow: 0 5px 20px rgba(21, 125, 236, 0.3);
+}
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 242, 255, 0.4);
+}
+
+#education { background: rgba(15, 16, 26, 0.5); }
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 3rem auto 0;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary), var(--neon));
+}
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    width: calc(50% - 2rem);
+    padding: 1.5rem;
+    background: rgba(26, 28, 46, 0.7);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.timeline-item:hover {
+    transform: translateY(-5px);
+}
+.timeline-item:nth-child(odd) { left: 0; }
+.timeline-item:nth-child(even) { left: calc(50% + 2rem); }
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+.skill {
+    background: rgba(26, 28, 46, 0.7);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+.skill:hover { transform: translateY(-10px); }
+.skill i {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(90deg, var(--primary), var(--neon));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+.project {
+    background: rgba(26, 28, 46, 0.7);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+.project:hover {
+    transform: translateY(-10px);
+}
+.project-info {
+    padding: 1.5rem;
+}
+
+form {
+    max-width: 500px;
+    margin: 3rem auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+input, textarea {
+    padding: 1rem;
+    background: rgba(26, 28, 46, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: white;
+    backdrop-filter: blur(10px);
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(15, 16, 26, 0.8);
+    color: var(--gray);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+.floating {
+    animation: float 6s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    .timeline::before { left: 2rem; }
+    .timeline-item {
+        width: 100%;
+        left: 0;
+        padding-left: 4rem;
+    }
+    .timeline-item:nth-child(even) { left: 0; }
+    nav ul { display: none; }
+}
