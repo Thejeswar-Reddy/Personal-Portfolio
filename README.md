@@ -11,7 +11,7 @@ Technologies Used
 **Frontend:** HTML5, CSS3, JavaScript  
 **Styling:** Tailwind CSS / Bootstrap  
 **Version Control:** Git & GitHub  
-🔗 [View My Portfolio](https://Thejeswar-Reddy.github.io/personal-portfolio/)  
+🔗 [View My Portfolio].(https://github.com/Thejeswar-Reddy/Personal-Portfolio.git). 
  📂 Project Structure  
 ```bash
 portfolio/
